@@ -1,0 +1,126 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "KeyValues",
+	"foldingStartMarker": "\\s*\\{\\s*",
+	"foldingStopMarker": "\\s*\\}\\s*",
+	"patterns": [
+		{
+			"include": "#entry"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.double-slash.keyvalues",
+					"match": "(//).*$",
+					"captures": {
+						"1": {
+							"name": "punctuation.definition.comment.keyvalues"
+						}
+					}
+				}
+			]
+		},
+		"number": {
+			"patterns": [
+				{
+					"name": "constant.numeric.keyvalues",
+					"match": "\"-?(?:0|[1-9]\\d*)(?:\\.\\d+)?\""
+				},
+				{
+					"name": "constant.numeric.keyvalues",
+					"match": "\\b-?(?:0|[1-9]\\d*)(?:\\.\\d+)?\\b"
+				}
+			]
+		},
+		"object": {
+			"name": "meta.structure.dictionary.keyvalues",
+			"begin": "\\{",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.dictionary.begin.keyvalues"
+				}
+			},
+			"end": "\\}",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.dictionary.end.keyvalues"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#comments"
+				},
+				{
+					"include": "#entry"
+				}
+			]
+		},
+		"strings": {
+			"patterns": [
+				{
+					"name": "string.quoted.double",
+					"begin": "\"",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin.keyvalues"
+						}
+					},
+					"end": "\"",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.end.keyvalues"
+						}
+					},
+					"patterns": [
+						{
+							"name": "constant.character.escape.keyvalues",
+							"match": "\\\\[\"nt\\\\]"
+						},
+						{
+							"name": "invalid.illegal.unrecognized-string-escape.keyvalues",
+							"match": "\\\\."
+						}
+					]
+				},
+				{
+					"name": "string.unquoted",
+					"match": "\\b(?:\\w|\\d|[.:,;+*#'@_~|<>])+\\b"
+				}
+			]
+		},
+		"color": {
+			"name": "constant.other.color.rgb-value.keyvalues",
+			"match": "(\")\\d{1,3}\\s+\\d{1,3}\\s+\\d{1,3}(\")",
+			"captures": {
+				"1": {
+					"name": "punctuation.definition.color.begin.keyvalues"
+				},
+				"2": {
+					"name": "punctuation.definition.color.end.keyvalues"
+				}
+			}
+		},
+		"entry": {
+			"patterns": [
+				{
+					"include": "#number"
+				},
+				{
+					"include": "#color"
+				},
+				{
+					"include": "#strings"
+				},
+				{
+					"include": "#object"
+				},
+				{
+					"include": "#comments"
+				}
+			]
+		}
+	},
+	"scopeName": "source.keyvalues"
+}

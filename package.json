@@ -1,0 +1,25 @@
+{
+    "name": "valve-keyvalues",
+    "displayName": "Valve KeyValues",
+    "description": "Language support for the JSON-like KeyValue format used internally by Valve.",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.45.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "keyvalues",
+            "aliases": ["KeyValues", "keyvalues"],
+            "extensions": [".txt",".vdf"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "keyvalues",
+            "scopeName": "source.keyvalues",
+            "path": "./syntaxes/keyvalues.tmLanguage.json"
+        }]
+    }
+}
