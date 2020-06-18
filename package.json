@@ -1,7 +1,7 @@
 {
-    "name": "valve-keyvalues",
-    "displayName": "Valve KeyValues",
-    "description": "Language support for the JSON-like KeyValue format used internally by Valve.",
+    "name": "key-values-vscode",
+    "displayName": "KeyValues.vscode",
+    "description": "Language support for KeyValues (also called Valve Data Format).",
     "version": "0.0.1",
     "engines": {
         "vscode": "^1.45.0"
@@ -12,7 +12,7 @@
     "contributes": {
         "languages": [{
             "id": "keyvalues",
-            "aliases": ["KeyValues", "keyvalues"],
+            "aliases": ["KeyValues", "keyvalues", "VDF", "Valve Data Format"],
             "extensions": [".txt",".vdf"],
             "configuration": "./language-configuration.json"
         }],
