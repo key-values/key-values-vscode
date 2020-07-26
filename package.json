@@ -10,7 +10,7 @@
         "Programming Languages"
     ],
 	"activationEvents": [
-		"onLanguage:semanticLanguage"
+		"onLanguage:keyvalues"
 	],
 	"main": "./dist/extension.js",
     "contributes": {
